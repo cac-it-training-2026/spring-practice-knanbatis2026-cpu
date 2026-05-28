@@ -9,7 +9,7 @@ import jp.co.sss.practice.p04.q01.form.BmiForm;
 
 @Controller
 public class Practice0401Controller {
-	@RequestMapping(path = "/bmi/input", method = RequestMethod.POST)
+	@RequestMapping(path = "/bmi/input")
 	public String bmiInput() {
 		return "practice04/01/bmi_input";
 	}
@@ -18,7 +18,7 @@ public class Practice0401Controller {
 	public String bmiResult(BmiForm bmiForm, Model model) {
 		double bmi = bmiForm.getWeight() / Math.pow((bmiForm.getHeight() / 100), 2);
 		bmiForm.setBmi(bmi);
-		model.addAttribute(bmiForm);
+		model.addAttribute("bmiForm", bmiForm);
 		return "practice04/01/bmi_result";
 
 	}
